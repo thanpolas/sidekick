@@ -3,8 +3,7 @@
 > Your sidekick to all your projects! Helpers, utilities and quickies.
 
 [![NPM Version][npm-image]][npm-url]
-[![CircleCI](https://circleci.com/gh/thanpolas/[...].svg?style=svg)](https://circleci.com/gh/thanpolas/[...])
-[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/GkyEqzJWEY)
+[![CircleCI](https://circleci.com/gh/thanpolas/sidekick.svg?style=svg)](https://circleci.com/gh/thanpolas/sidekick)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
 # Install
@@ -593,4 +592,5 @@ When a new node version is available you need to updated it in the following:
 Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC](/LICENSE).
 
 [npm-url]: https://npmjs.org/package/@thanpolas/sidekick
+[npm-image]: https://img.shields.io/npm/v/@thanpolas/sidekick.svg
 [thanpolas]: https://github.com/thanpolas
