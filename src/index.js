@@ -23,7 +23,7 @@ const { formatDate, formatDateShort, unixToJsDate } = require('./date');
 const { getPercentHr, shortAddress, formatNumber } = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
-const { getRandomInt } = require('./random');
+const { getRandomInt, getUniqueId } = require('./random');
 const { splitString, stdQuote, humanCSVInputToArray } = require('./string');
 const {
   delay,
@@ -74,6 +74,7 @@ exports.perfToSeconds = perfToSeconds;
 
 // Random
 exports.getRandomInt = getRandomInt;
+exports.getUniqueId = getUniqueId;
 
 // Strings
 exports.splitString = splitString;
