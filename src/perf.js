@@ -2,6 +2,8 @@
  * @fileoverview Performance related functions.
  */
 
+const { secondsToDhms } = require('./time');
+
 /**
  * Helper for performance measuring of execution time.
  *
@@ -35,7 +37,7 @@ exports.perf = (optSince) => {
  */
 exports.perfFormat = (diff) => {
   const seconds = diff / BigInt(1e9);
-  const totalTime = exports.secondsToDhms(seconds);
+  const totalTime = secondsToDhms(seconds);
 
   const secondsInMs = seconds * BigInt(1e3);
   const ms = diff / BigInt(1e6) - secondsInMs;
