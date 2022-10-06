@@ -584,6 +584,8 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
+-   **v1.0.1**, _06 Oct 2022_
+    -   Cosmetic changes.
 -   **v1.0.0**, _06 Oct 2022_
     -   Big Bang
 
