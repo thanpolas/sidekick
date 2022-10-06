@@ -584,9 +584,10 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
--   **v1.0.4**, _06 Oct 2022_
+-   **v1.0.5**, _06 Oct 2022_
     -   Added `getUniqueId()`.
     -   Added `dateDiff()`.
+    -   Fix broken reference on `perf()`.
 -   **v1.0.0**, _06 Oct 2022_
     -   Big Bang
 
