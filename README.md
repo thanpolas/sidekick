@@ -26,7 +26,7 @@ Executes concurrently the Function "fn" against all the items in the array.
 Throttles of concurrency to 5. Use when multiple I/O operations need to be performed.
 
 -   `items` **{Array\<\*>}** The Items.
--   `fn` **{function(\_): Promise\<\*>}** Function to be applied on the array items.
+-   `fn` **{function(\*): Promise\<\*>}** Function to be applied on the array items.
 -   `concurrency` **{number=}** The concurrency, default 5.
 -   **Returns {Promise\<Array\<\*>>}** Array of your return values in array
     order.
