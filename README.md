@@ -50,9 +50,9 @@ Will index an array of objects into an object using the designated
 property of the objects as the index pivot. The created objects will be
 arrays of items to contain all records matching that index.
 
--   `arrayItems` **{Array<Object>}** The array with objects to index.
+-   `arrayItems` **{Array\<Object\>}** The array with objects to index.
 -   `indexCol` **{string}** The column to index by.
--   **Returns {Object<Array<Object<Array>>>}** Indexed array as an object of Arrays.
+-   **Returns {Object\<Array<Object\<Array\>\>\>}** Indexed array as an object of Arrays.
 
 #### Example
 
