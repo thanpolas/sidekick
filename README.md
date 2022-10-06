@@ -585,7 +585,7 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
--   **v0.0.1**, _TBD_
+-   **v1.0.0**, _06 Oct 2022_
     -   Big Bang
 
 ## License
@@ -594,7 +594,3 @@ Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC]
 
 [npm-url]: https://npmjs.org/package/@thanpolas/[...]
 [thanpolas]: https://github.com/thanpolas
-
-```
-
-```
