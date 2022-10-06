@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@thanpolas/sidekick",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "./",
     "description": "Your sidekick to all your projects! Helpers, utilities and quickies.",
     "homepage": "https://github.com/thanpolas/sidekick",
