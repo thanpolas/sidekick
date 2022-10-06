@@ -1,11 +1,11 @@
 {
     "private": false,
-    "name": "@thanpolas/awesome",
+    "name": "@thanpolas/sidekick",
     "version": "0.0.0",
     "main": "./src/",
-    "description": "Awesome Lib",
-    "homepage": "https://github.com/thanpolas/awesome",
-    "bugs": "https://github.com/thanpolas/awesome/issues",
+    "description": "Your sidekick to all your projects! Helpers, utilities and quickies.",
+    "homepage": "https://github.com/thanpolas/sidekick",
+    "bugs": "https://github.com/thanpolas/sidekick/issues",
     "author": {
         "name": "Thanos Polychronakis",
         "email": "thanpolas@gmail.com"
@@ -15,7 +15,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/thanpolas/awesome"
+        "url": "https://github.com/thanpolas/sidekick"
     },
     "license": "ISC",
     "engines": {

@@ -1,22 +1,25 @@
-# Awesome Lib name
+# Sidekick - Node.js Utilities Library
 
-> The awesome lib description
+> Your sidekick to all your projects! Helpers, utilities and quickies.
 
 [![NPM Version][npm-image]][npm-url]
 [![CircleCI](https://circleci.com/gh/thanpolas/[...].svg?style=svg)](https://circleci.com/gh/thanpolas/[...])
 [![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/GkyEqzJWEY)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
-## Install
+# Install
 
 Install the module using NPM:
 
 ```
-npm install @thanpolas/awesome-lib --save
+npm install @thanpolas/sidekick --save
 ```
 
-## Documentation
+# Documentation
 
+...
+
+# Maintainance
 
 ## Update Node Version
 
