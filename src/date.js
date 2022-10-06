@@ -3,6 +3,7 @@
  */
 
 const format = require('date-fns/format');
+const { secondsToDhms } = require('./time');
 
 /**
  * Formats a date string into human readable, extended format.
@@ -32,4 +33,17 @@ exports.formatDateShort = (dt) => {
  */
 exports.unixToJsDate = (unixTimestamp) => {
   return new Date(Number(unixTimestamp) * 1000);
+};
+
+/**
+ * Will format in human readable form the difference between two dates.
+ *
+ * @param {Date} fromDate From which date.
+ * @param {Date=} toDate To which date, default is now time.
+ * @return {string}
+ */
+exports.dateDiff = (fromDate, toDate = new Date()) => {
+  const diffInSeconds = Math.round((toDate - fromDate) / 1000);
+
+  return secondsToDhms(diffInSeconds);
 };
