@@ -2,7 +2,7 @@
     "private": false,
     "name": "@thanpolas/sidekick",
     "version": "1.0.1",
-    "main": "./src/",
+    "main": "./",
     "description": "Your sidekick to all your projects! Helpers, utilities and quickies.",
     "homepage": "https://github.com/thanpolas/sidekick",
     "bugs": "https://github.com/thanpolas/sidekick/issues",
