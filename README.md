@@ -592,5 +592,5 @@ When a new node version is available you need to updated it in the following:
 
 Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC](/LICENSE).
 
-[npm-url]: https://npmjs.org/package/@thanpolas/[...]
+[npm-url]: https://npmjs.org/package/@thanpolas/sidekick
 [thanpolas]: https://github.com/thanpolas
