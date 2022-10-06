@@ -28,7 +28,7 @@ exports.iterObj = (obj, fn) => {
  *    - The value of the object iteration
  *    - The index of the iteration
  *    - The key of the object.
- * @return {*} The return of the callback.
+ * @return {Array<*>} The return of the callback.
  */
 exports.mapObj = (obj, fn) => {
   const allKeys = Object.keys(obj);
