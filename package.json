@@ -54,24 +54,25 @@
     "dependencies": {
         "bluebird": "^3.7.2",
         "date-fns": "^2.29.3",
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "slugify": "^1.6.5"
     },
     "devDependencies": {
-        "@types/jest": "27.0.1",
+        "@types/jest": "29.1.1",
         "codecov": "^3.8.3",
-        "eslint": "7.32.0",
-        "eslint-config-airbnb-base": "14.2.1",
-        "eslint-config-prettier": "8.3.0",
-        "eslint-plugin-import": "2.24.1",
-        "eslint-plugin-jest": "24.4.0",
-        "eslint-plugin-jsdoc": "36.0.7",
-        "eslint-plugin-prettier": "3.4.0",
-        "eslint-plugin-security": "1.4.0",
-        "expect": "27.0.6",
-        "jest": "27.0.6",
-        "jest-extended": "0.11.5",
-        "jest-junit": "12.2.0",
-        "prettier": "2.3.2",
+        "eslint": "8.24.0",
+        "eslint-config-airbnb-base": "15.0.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-plugin-import": "2.26.0",
+        "eslint-plugin-jest": "27.1.1",
+        "eslint-plugin-jsdoc": "39.3.6",
+        "eslint-plugin-prettier": "4.2.1",
+        "eslint-plugin-security": "1.5.0",
+        "expect": "29.1.2",
+        "jest": "29.1.2",
+        "jest-extended": "3.1.0",
+        "jest-junit": "14.0.1",
+        "prettier": "2.7.1",
         "release-it": "14.11.5"
     }
 }
