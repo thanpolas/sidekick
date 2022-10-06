@@ -13,7 +13,7 @@ const Bluebird = require('bluebird');
  * @param {Array<*>} items Items.
  * @param {function(*): Promise<*>} fn Function to be applied on the array items.
  * @param {number=} concurrency The concurrency, default 5.
- * @return {Promise<*>}
+ * @return {Promise<Array<*>>}
  */
 exports.asyncMapCap = (items, fn, concurrency = 5) =>
   Bluebird.map(items, fn, { concurrency });
