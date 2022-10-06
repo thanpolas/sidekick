@@ -19,7 +19,12 @@ const {
 const { sha256, hashPassword, passwordsMatch } = require('./crypto-hash');
 const { fileSha256 } = require('./crypto-sha256-file');
 const { encrypt, decrypt } = require('./crypto-symmetric');
-const { formatDate, formatDateShort, unixToJsDate } = require('./date');
+const {
+  formatDate,
+  formatDateShort,
+  unixToJsDate,
+  dateDiff,
+} = require('./date');
 const { getPercentHr, shortAddress, formatNumber } = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
@@ -92,3 +97,4 @@ exports.secondsToDhms = secondsToDhms;
 exports.formatDate = formatDate;
 exports.formatDateShort = formatDateShort;
 exports.unixToJsDate = unixToJsDate;
+exports.dateDiff = dateDiff;
