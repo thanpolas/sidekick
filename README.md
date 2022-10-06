@@ -3,8 +3,7 @@
 > Your sidekick to all your projects! Helpers, utilities and quickies.
 
 [![NPM Version][npm-image]][npm-url]
-[![CircleCI](https://circleci.com/gh/thanpolas/[...].svg?style=svg)](https://circleci.com/gh/thanpolas/[...])
-[![Discord](https://img.shields.io/discord/847075821276758096?label=discord&color=CBE9F0)](https://discord.gg/GkyEqzJWEY)
+[![CircleCI](https://circleci.com/gh/thanpolas/sidekick.svg?style=svg)](https://circleci.com/gh/thanpolas/sidekick)
 [![Twitter Follow](https://img.shields.io/twitter/follow/thanpolas.svg?label=thanpolas&style=social)](https://twitter.com/thanpolas)
 
 # Install
@@ -26,10 +25,10 @@ The helpers and utilities are divided based on their functionality:
 Executes concurrently the Function "fn" against all the items in the array.
 Throttles of concurrency to 5. Use when multiple I/O operations need to be performed.
 
--   `items` **{Array<\*>}** The Items.
--   `fn` **{function(_): Promise<_>}** Function to be applied on the array items.
+-   `items` **{Array\<\*>}** The Items.
+-   `fn` **{function(_): Promise\<_>}** Function to be applied on the array items.
 -   `concurrency` **{number=}** The concurrency, default 5.
--   **Returns {Promise<Array<\*>>}** Array of your return values in array
+-   **Returns {Promise\<Array\<\*>>}** Array of your return values in array
     order.
 
 ### allSettledArray(arrayPromises)
@@ -40,8 +39,8 @@ results in a flattened array.
 -   ℹ️ Does not care for rejected promises.
 -   ℹ️ Expects that the results of fulfilled promises are Arrays.
 
--   `arrayPromsises` **{Array<Promise>}** An array of promises.
--   **Returns {Promise<Array<\*>>}** A Promise with an array of the outcome.
+-   `arrayPromsises` **{Array\<Promise>}** An array of promises.
+-   **Returns {Promise\<Array\<\*>>}** A Promise with an array of the outcome.
 
 ## Collections
 
@@ -51,9 +50,9 @@ Will index an array of objects into an object using the designated
 property of the objects as the index pivot. The created objects will be
 arrays of items to contain all records matching that index.
 
--   `arrayItems` **{Array<Object>}** The array with objects to index.
+-   `arrayItems` **{Array\\<Object\>}** The array with objects to index.
 -   `indexCol` **{string}** The column to index by.
--   **Returns {Object<Array<Object<Array>>>}** Indexed array as an object of Arrays.
+-   **Returns {Object\<Array\<Object\<Array\>\>\>}** Indexed array as an object of Arrays.
 
 #### Example
 
@@ -102,9 +101,9 @@ Will index an array of objects into an object using the designated
 property of the objects as the index pivot. The created objects will be
 objects, overwritting any duplicate indexed items.
 
--   `arrayItems` **{Array<Object>}** The array with objects to index.
+-   `arrayItems` **{Array\<Object>}** The array with objects to index.
 -   `indexCol` **{string}** The column to index by.
--   **Returns {Object<Array<Object>>}** Indexed array as an object.
+-   **Returns {Object\<Array\<Object>>}** Indexed array as an object.
 
 #### Example
 
@@ -164,8 +163,8 @@ console.log(ar);
 
 Will deep flatten the given array and filter our falsy values.
 
--   `ar` **{Array<\*>}** Array with items.
--   **Returns {Array<\*>}** Flattened and filtered array.
+-   `ar` **{Array\<\*>}** Array with items.
+-   **Returns {Array\<\*>}** Flattened and filtered array.
 
 #### Example
 
@@ -183,7 +182,7 @@ Fills an array with a range of numbers starting and ending as defined.
 
 -   `start` **{number}** Number to start from.
 -   `end` **{number}** Number to end.
--   **Returns {Array<number>}**
+-   **Returns {Array\<number>}**
 
 #### Example
 
@@ -208,7 +207,7 @@ Will produce the SHA256 checksum of a filesystem object.
 
 -   `absPath` **{string}** Absolute path to the file.
 -   `base64` **{boolean=}** Set to true for base64 encoding.
--   **Returns {Promise<string>}** A Promise with the SHA256.
+-   **Returns {Promise\<string>}** A Promise with the SHA256.
 
 ### hashPassword(password, optSalt)
 
@@ -217,7 +216,7 @@ Hash encrypts the provided string. Uses [crypto.scrypt()](https://nodejs.org/api
 -   `password` **{string}** The password to hash.
 -   `optSalt` **{string=}** Optionally, provide the salt to use, if not provided
     a salt will be generated.
--   **Returns {Promise<Object>}** Object with two keys:
+-   **Returns {Promise\<Object>}** Object with two keys:
     -   `salt` **{string}** A string containing the salt.
     -   `hash` **{string}** A string containing the encrypted password.
 
@@ -228,7 +227,7 @@ Performs the password matching operation.
 -   `password` **{string}** Password to match.
 -   `encPass` **{string}** Encrypted password from the database.
 -   `salt` **{string}** Salt used to encrypt.
--   **Returns {Promise<boolean>}** A Promise with a boolean response.
+-   **Returns {Promise\<boolean>}** A Promise with a boolean response.
 
 ### symmetricEncrypt(text, encKey, optPassword)
 
@@ -244,7 +243,7 @@ function. The custom text is built as follows:
 -   `encKey` **{string}** Key to use for encrypting.
 -   `optPassword` **{string=}** Optionally provide user defined password to use
     in combination with the encryption key.
--   **Returns {Promise<string>}** Encrypted text combined with IV and salts.
+-   **Returns {Promise\<string>}** Encrypted text combined with IV and salts.
 
 ### symmetricDecrypt(encPackage, encKey, optPassword)
 
@@ -257,7 +256,7 @@ encrypted text, so you'll have to encrypt using the accompanied `symmetricEncryp
 -   `encKey` **{string}** Key to use for encrypting.
 -   `optPassword` **{string=}** Optionally provide user defined password
     to use in combination with the encryption key.
--   **Returns {Promise<string>}** Decrypted message.
+-   **Returns {Promise\<string>}** Decrypted message.
 -   **throws {Error}** When decryption fails.
 
 ## Date
@@ -316,14 +315,14 @@ Will format in human readable form the difference between two dates.
 An async delay in seconds.
 
 -   `seconds` **{number}** How many seconds to wait.
--   **Return {Promise<void>}**
+-   **Return {Promise\<void>}**
 
 ### delayMs(ms)
 
 An async delay in miliseconds.
 
 -   `ms` **{number}** How many miliseconds to wait.
--   **Return {Promise<void>}**
+-   **Return {Promise\<void>}**
 
 ### errorDelay(retry, maxDelay = 20, delayMultiplier = 1)
 
@@ -334,7 +333,7 @@ ever increasing the delay and a maximum delay to act as a stopgap.
 -   `maxDelay` **{number=}** Maximum delay in seconds.
 -   `delayMultiplier` **{number=}** Multiplier of retries to calculate delay
     (multiplies the retry count to calculate the delay).
--   **Returns {Promise<void>}**
+-   **Returns {Promise\<void>}**
 
 ### delayRandom(fromSeconds, toSeconds)
 
@@ -342,7 +341,7 @@ Random delay between a given range.
 
 -   `fromSeconds` **{number}** Lowest value of seconds to delay.
 -   `toSeconds` **{number}** Highest value of seconds to delay.
--   **Returns {Promise<number>}** Promise with the delay in seconds.
+-   **Returns {Promise\<number>}** Promise with the delay in seconds.
 
 ### secondsToDhms(seconds, short = false)
 
@@ -433,7 +432,7 @@ the outcome of the callback, as per Array.map().
     -   The value of the object iteration
     -   The index of the iteration
     -   The key of the object.
--   **Returns {Array<\*>}** The return of the callback.
+-   **Returns {Array\<\*>}** The return of the callback.
 
 ### flatCopyObj(srcObj, trgObj, optPrefix = '')
 
@@ -544,7 +543,7 @@ of 1800 which is intented for spliting long discord messages (limit at 2000).
 
 -   `str` **{string}** The string to split.
 -   `numChars` **{number=}** Number of characters to split the string into.
--   **Returns {Array<string>}** An array of strings, split based on the numChars.
+-   **Returns {Array\<string>}** An array of strings, split based on the numChars.
 
 ### stdQuote(str)
 
@@ -563,7 +562,7 @@ Will parse and normalize a human input of comma separated values
 each item will be trimmed for spaces.
 
 -   `input` **{string}** input The raw human input.
--   **Returns {Array<string>}** Space trimmed values.
+-   **Returns {Array\<string>}** Space trimmed values.
 
 # Maintainance
 
@@ -592,5 +591,6 @@ When a new node version is available you need to updated it in the following:
 
 Copyright © [Thanos Polychronakis][thanpolas] and Authors, [Licensed under ISC](/LICENSE).
 
-[npm-url]: https://npmjs.org/package/@thanpolas/[...]
+[npm-url]: https://npmjs.org/package/@thanpolas/sidekick
+[npm-image]: https://img.shields.io/npm/v/@thanpolas/sidekick.svg
 [thanpolas]: https://github.com/thanpolas
