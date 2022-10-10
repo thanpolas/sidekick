@@ -28,7 +28,7 @@ const {
 const { getPercentHr, shortAddress, formatNumber } = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
-const { getRandomInt, getUniqueId } = require('./random');
+const { getRandomIntMinMax, getUniqueId } = require('./random');
 const { splitString, stdQuote, humanCSVInputToArray } = require('./string');
 const {
   delay,
@@ -78,7 +78,7 @@ exports.perfFormat = perfFormat;
 exports.perfToSeconds = perfToSeconds;
 
 // Random
-exports.getRandomInt = getRandomInt;
+exports.getRandomIntMinMax = getRandomIntMinMax;
 exports.getUniqueId = getUniqueId;
 
 // Strings

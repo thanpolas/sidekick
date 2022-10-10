@@ -584,6 +584,9 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
+-   **v1.0.6**, _10 Oct 2022_
+    -   Property exported `getRandomIntMinMax()`.
+    -   Fixed `delayRandom()` using wrong randomizer function.
 -   **v1.0.5**, _06 Oct 2022_
     -   Added `getUniqueId()`.
     -   Added `dateDiff()`.
