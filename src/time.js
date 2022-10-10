@@ -2,7 +2,7 @@
  * @fileoverview Time related helpers.
  */
 
-const { getRandomInt } = require('./random');
+const { getRandomIntMinMax } = require('./random');
 
 /**
  * An async delay, to time sending messages.
@@ -51,7 +51,7 @@ exports.delayMs = (ms) => {
 exports.delayRandom = async (fromSeconds, toSeconds) => {
   const diff = toSeconds - fromSeconds;
 
-  const delayRand = getRandomInt(diff);
+  const delayRand = getRandomIntMinMax(0, diff);
 
   const delay = fromSeconds + delayRand;
 
