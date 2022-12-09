@@ -29,7 +29,12 @@ const { getPercentHr, shortAddress, formatNumber } = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
 const { getRandomIntMinMax, getUniqueId } = require('./random');
-const { splitString, stdQuote, humanCSVInputToArray } = require('./string');
+const {
+  splitString,
+  stdQuote,
+  humanCSVInputToArray,
+  renderParts,
+} = require('./string');
 const {
   delay,
   errorDelay,
@@ -85,6 +90,7 @@ exports.getUniqueId = getUniqueId;
 exports.splitString = splitString;
 exports.stdQuote = stdQuote;
 exports.humanCSVInputToArray = humanCSVInputToArray;
+exports.renderParts = renderParts;
 
 // Time
 exports.delay = delay;
