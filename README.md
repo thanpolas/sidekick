@@ -564,6 +564,40 @@ Quotation Mark - "U+0022 Standard Universal". [Read more about unicode quotes](h
 Will parse and normalize a human input of comma separated values
 each item will be trimmed for spaces.
 
+### renderParts(parts, isCli)
+
+-   `parts` **{Array\<string|Array\<string\>\>}** The parts to render.
+-   `isCli` **{boolean=}** Set to true to not apply any decorations (i.e. bold).
+-   **Returns {string}** Rendered string.
+
+Will render to string an array of single or pair items, used for joining
+constructed strings to be used either on Discord or CLI. By default the rendering
+will target discord using the `**` notation for bold.
+
+The parts will be separated with a dash (`-`).
+
+When a pair of items is provided, it is implied that the first item is the title
+and the second is the value, so the function will make the title bold
+(i.e. `['title', 'value']` will make the "title" bold on discord using the `**`
+notation).
+
+#### Example
+
+```js
+const parts = [];
+parts.push('Hear me out');
+parts.push('these are the results');
+parts.push(['player 1', '120']);
+parts.push(['player 2', '420']);
+parts.push(['Winner', 'Player 2']);
+
+const strDiscord = renderParts(parts);
+// Hear me out - these are the results - **player 1**: 120 - **player 2**: 420 - **Winner**: Player 2
+
+const strCli = renderParts(parts, true);
+// Hear me out - these are the results - player 1: 120 - player 2: 420 - Winner: Player 2
+```
+
 # Maintainance
 
 ## Update Node Version
