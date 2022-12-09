@@ -22,19 +22,16 @@ The helpers and utilities are divided based on their functionality:
 
 ### asyncMapCap(items, fn, concurrency = 5)
 
-Executes concurrently the Function "fn" against all the items in the array.
-Throttles of concurrency to 5. Use when multiple I/O operations need to be performed.
-
 -   `items` **{Array\<\*>}** The Items.
 -   `fn` **{function(\*): Promise\<\*>}** Function to be applied on the array items.
 -   `concurrency` **{number=}** The concurrency, default 5.
 -   **Returns {Promise\<Array\<\*>>}** Array of your return values in array
     order.
 
-### allSettledArray(arrayPromises)
+Executes concurrently the Function "fn" against all the items in the array.
+Throttles of concurrency to 5. Use when multiple I/O operations need to be performed.
 
-Will run "allSettled()" on the given promises and return all fulfilled
-results in a flattened array.
+### allSettledArray(arrayPromises)
 
 -   ℹ️ Does not care for rejected promises.
 -   ℹ️ Expects that the results of fulfilled promises are Arrays.
@@ -42,17 +39,20 @@ results in a flattened array.
 -   `arrayPromsises` **{Array\<Promise>}** An array of promises.
 -   **Returns {Promise\<Array\<\*>>}** A Promise with an array of the outcome.
 
+Will run "allSettled()" on the given promises and return all fulfilled
+results in a flattened array.
+
 ## Collections
 
 ### indexArrayToObjectAr(arrayItems, indexCol)
 
-Will index an array of objects into an object using the designated
-property of the objects as the index pivot. The created objects will be
-arrays of items to contain all records matching that index.
-
 -   `arrayItems` **{Array\\<Object\>}** The array with objects to index.
 -   `indexCol` **{string}** The column to index by.
 -   **Returns {Object\<Array\<Object\<Array\>\>\>}** Indexed array as an object of Arrays.
+
+Will index an array of objects into an object using the designated
+property of the objects as the index pivot. The created objects will be
+arrays of items to contain all records matching that index.
 
 #### Example
 
@@ -97,13 +97,13 @@ console.log(indexedItems);
 
 ### indexArrayToObject(arrayItems, indexCol)
 
-Will index an array of objects into an object using the designated
-property of the objects as the index pivot. The created objects will be
-objects, overwritting any duplicate indexed items.
-
 -   `arrayItems` **{Array\<Object>}** The array with objects to index.
 -   `indexCol` **{string}** The column to index by.
 -   **Returns {Object\<Array\<Object>>}** Indexed array as an object.
+
+Will index an array of objects into an object using the designated
+property of the objects as the index pivot. The created objects will be
+objects, overwritting any duplicate indexed items.
 
 #### Example
 
@@ -140,12 +140,12 @@ console.log(indexedItems);
 
 ### arrayKeep(ar, arIndex)
 
-Will remove all items from the provided array except the one with the defined index.
-Uses `splice()` to change the contents of the array in place.
-
 -   `ar` **{Array}** An array.
 -   `arIndex` **{number}** the index item to retain.
 -   **Returns {void}** Array is updated in place.
+
+Will remove all items from the provided array except the one with the defined index.
+Uses `splice()` to change the contents of the array in place.
 
 #### Example
 
@@ -161,10 +161,10 @@ console.log(ar);
 
 ### flatFilter(ar)
 
-Will deep flatten the given array and filter our falsy values.
-
 -   `ar` **{Array\<\*>}** Array with items.
 -   **Returns {Array\<\*>}** Flattened and filtered array.
+
+Will deep flatten the given array and filter our falsy values.
 
 #### Example
 
@@ -178,11 +178,11 @@ console.log(flatFilter(ar));
 
 ### rangeFill(start, end)
 
-Fills an array with a range of numbers starting and ending as defined.
-
 -   `start` **{number}** Number to start from.
 -   `end` **{number}** Number to end.
 -   **Returns {Array\<number>}**
+
+Fills an array with a range of numbers starting and ending as defined.
 
 #### Example
 
@@ -196,22 +196,20 @@ console.log(rangeFill(10, 15));
 
 ### sha256(data)
 
-Produce a globally compatible hash. (based on this [SO article](https://stackoverflow.com/questions/5878682/node-js-hash-string))
-
 -   `data` **{string}** Data to produce hash for.
 -   **Returns {string}** Hash of the string.
 
-### fileSha256(absPath, base64 = false)
+Produce a globally compatible hash. (based on this [SO article](https://stackoverflow.com/questions/5878682/node-js-hash-string))
 
-Will produce the SHA256 checksum of a filesystem object.
+### fileSha256(absPath, base64 = false)
 
 -   `absPath` **{string}** Absolute path to the file.
 -   `base64` **{boolean=}** Set to true for base64 encoding.
 -   **Returns {Promise\<string>}** A Promise with the SHA256.
 
-### hashPassword(password, optSalt)
+Will produce the SHA256 checksum of a filesystem object.
 
-Hash encrypts the provided string. Uses [crypto.scrypt()](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback).
+### hashPassword(password, optSalt)
 
 -   `password` **{string}** The password to hash.
 -   `optSalt` **{string=}** Optionally, provide the salt to use, if not provided
@@ -220,16 +218,24 @@ Hash encrypts the provided string. Uses [crypto.scrypt()](https://nodejs.org/api
     -   `salt` **{string}** A string containing the salt.
     -   `hash` **{string}** A string containing the encrypted password.
 
-### passwordsMatch(password, encPass, salt)
+Hash encrypts the provided string. Uses [crypto.scrypt()](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback).
 
-Performs the password matching operation.
+### passwordsMatch(password, encPass, salt)
 
 -   `password` **{string}** Password to match.
 -   `encPass` **{string}** Encrypted password from the database.
 -   `salt` **{string}** Salt used to encrypt.
 -   **Returns {Promise\<boolean>}** A Promise with a boolean response.
 
+Performs the password matching operation.
+
 ### symmetricEncrypt(text, encKey, optPassword)
+
+-   `text` **{string}** Text to encrypt.
+-   `encKey` **{string}** Key to use for encrypting.
+-   `optPassword` **{string=}** Optionally provide user defined password to use
+    in combination with the encryption key.
+-   **Returns {Promise\<string>}** Encrypted text combined with IV and salts.
 
 Symmetrically encrypt using AES256 CBC cipher with a random IV.
 
@@ -239,18 +245,7 @@ function. The custom text is built as follows:
 
 > `${hmacHex}:${ivHex}:${salt}:${encryptedContent}`
 
--   `text` **{string}** Text to encrypt.
--   `encKey` **{string}** Key to use for encrypting.
--   `optPassword` **{string=}** Optionally provide user defined password to use
-    in combination with the encryption key.
--   **Returns {Promise\<string>}** Encrypted text combined with IV and salts.
-
 ### symmetricDecrypt(encPackage, encKey, optPassword)
-
-Symmetrically decrypt using AES256 CBC cipher with a random IV.
-
-This function accepts a custom string which combines the IV and the
-encrypted text, so you'll have to encrypt using the accompanied `symmetricEncrypt()`.
 
 -   `encPackage` **{string}** The encryption package.
 -   `encKey` **{string}** Key to use for encrypting.
@@ -259,14 +254,19 @@ encrypted text, so you'll have to encrypt using the accompanied `symmetricEncryp
 -   **Returns {Promise\<string>}** Decrypted message.
 -   **throws {Error}** When decryption fails.
 
+Symmetrically decrypt using AES256 CBC cipher with a random IV.
+
+This function accepts a custom string which combines the IV and the
+encrypted text, so you'll have to encrypt using the accompanied `symmetricEncrypt()`.
+
 ## Date
 
 ### formatDate(dt)
 
-Formats a date string into human readable, extended format.
-
 -   `dt` **{string|Date}** ISO8612 format Date or native date object.
 -   **Returns {string}** Extended format of date.
+
+Formats a date string into human readable, extended format.
 
 #### Example
 
@@ -279,10 +279,10 @@ console.log(formatDate(dt));
 
 ### formatDateShort(dt)
 
-Formats a date string into human readable, short format.
-
 -   `dt` **{string|Date}** ISO8612 format Date or native date object.
 -   **Returns {string}** Short format of date.
+
+Formats a date string into human readable, short format.
 
 #### Example
 
@@ -295,39 +295,36 @@ console.log(formatDateShort(dt));
 
 ### unixToJsDate(unixTimestamp)
 
-Converts Unix timestamp to JS Native Date.
-
 -   `unixTimestamp` **{\*}** Unix timestamp.
 -   **Returns {Date}** JS Native Date.
 
-### dateDiff(fromDate, toDate = new Date())
+Converts Unix timestamp to JS Native Date.
 
-Will format in human readable form the difference between two dates.
+### dateDiff(fromDate, toDate = new Date())
 
 -   `fromDate` **{Date}** From which date.
 -   `toDate` **{Date=}** To which date, default is now time.
 -   **Returns {string}** Human readable difference.
 
+Will format in human readable form the difference between two dates.
+
 ## Time
 
 ### delay(seconds)
 
-An async delay in seconds.
-
 -   `seconds` **{number}** How many seconds to wait.
 -   **Return {Promise\<void>}**
 
-### delayMs(ms)
+An async delay in seconds.
 
-An async delay in miliseconds.
+### delayMs(ms)
 
 -   `ms` **{number}** How many miliseconds to wait.
 -   **Return {Promise\<void>}**
 
-### errorDelay(retry, maxDelay = 20, delayMultiplier = 1)
+An async delay in miliseconds.
 
-Error specific delay function that incorporates retry count for
-ever increasing the delay and a maximum delay to act as a stopgap.
+### errorDelay(retry, maxDelay = 20, delayMultiplier = 1)
 
 -   `retry` **{number}** Retry count of errors.
 -   `maxDelay` **{number=}** Maximum delay in seconds.
@@ -335,21 +332,24 @@ ever increasing the delay and a maximum delay to act as a stopgap.
     (multiplies the retry count to calculate the delay).
 -   **Returns {Promise\<void>}**
 
-### delayRandom(fromSeconds, toSeconds)
+Error specific delay function that incorporates retry count for
+ever increasing the delay and a maximum delay to act as a stopgap.
 
-Random delay between a given range.
+### delayRandom(fromSeconds, toSeconds)
 
 -   `fromSeconds` **{number}** Lowest value of seconds to delay.
 -   `toSeconds` **{number}** Highest value of seconds to delay.
 -   **Returns {Promise\<number>}** Promise with the delay in seconds.
 
-### secondsToDhms(seconds, short = false)
+Random delay between a given range.
 
-Converts seconds to human readable format of days, hours, minutes and seconds.
+### secondsToDhms(seconds, short = false)
 
 -   `seconds` **{number}** Seconds to convert.
 -   `short` **{boolean=}** Short version.
 -   **Returns {string}** Formatted string.
+
+Converts seconds to human readable format of days, hours, minutes and seconds.
 
 #### Example
 
@@ -365,12 +365,12 @@ console.log(secondsToDhms(3800, true));
 
 ### getPercentHr(denominator, numerator, decimals = 2)
 
-Get percentage of fraction into human readable format.
-
 -   `denominator` **{number}** Denominator.
 -   `numerator` **{number}** Numerator.
 -   `decimals` **{number=}** How many decimals to have, default is 2.
 -   **Returns {string}** Human readable percentage.
+
+Get percentage of fraction into human readable format.
 
 #### Example
 
@@ -381,17 +381,17 @@ console.log(getPercentHr(100, 33));
 
 ### shortAddress(address)
 
-Shorten an ethereum address as "0x123..98765".
-
 -   `address` **{string}** An ethereum address.
 -   **Returns {string}**
 
-### formatNumber(num)
+Shorten an ethereum address as "0x123..98765".
 
-Format a number in human readable format.
+### formatNumber(num)
 
 -   `num` **{number}** The number to format.
 -   **Returns {string}**
+
+Format a number in human readable format.
 
 #### Example
 
@@ -404,16 +404,14 @@ console.log(formatNumber(1234567890));
 
 ### getIp(req)
 
-Return the client's IP from an express request object.
-
 -   `req` **{express.Request}** The request object.
 -   **Returns {string}** The client's ip.
+
+Return the client's IP from an express request object.
 
 ## Object
 
 ### iterObj(obj, cb)
-
-Will iterate through an object based on the keys of the object.
 
 -   `obj` **{Object}** The object to iterate on.
 -   `cb` **{function}** The callback function, with three arguments:
@@ -422,10 +420,9 @@ Will iterate through an object based on the keys of the object.
     -   The key of the object.
 -   **Returns {void}**
 
-### mapObj(obj, cb)
+Will iterate through an object based on the keys of the object.
 
-Will iterate through an object based on the keys of the object and return
-the outcome of the callback, as per Array.map().
+### mapObj(obj, cb)
 
 -   `obj` **{Object}** The object to iterate on.
 -   `cb` **{function}** The callback function, with three arguments:
@@ -434,15 +431,18 @@ the outcome of the callback, as per Array.map().
     -   The key of the object.
 -   **Returns {Array\<\*>}** The return of the callback.
 
-### flatCopyObj(srcObj, trgObj, optPrefix = '')
+Will iterate through an object based on the keys of the object and return
+the outcome of the callback, as per Array.map().
 
-Will shallow copy all key/values from source object to target object,
-mutates target object.
+### flatCopyObj(srcObj, trgObj, optPrefix = '')
 
 -   `srcObj` **{Object}** Source object.
 -   `trgObj` **{Object}** Target object.
 -   `optPrefix` **{string=}** Prefix the keys with this string.
 -   **Returns {void}** Mutates "trgObj".
+
+Will shallow copy all key/values from source object to target object,
+mutates target object.
 
 #### Example
 
@@ -494,21 +494,14 @@ console.log(trgObj);
 
 ### safeStringify(obj)
 
-Will safely JSON serialize any value to JSON, accounting for BigInt.
-
 -   `obj` **{\*}** Any value to serialize.
 -   **Returns {string}** JSON serialized string.
+
+Will safely JSON serialize any value to JSON, accounting for BigInt.
 
 ## Perf
 
 ### perf(optSince)
-
-Helper for performance measuring of execution time.
-
-Invoke without argument to get the starting timestamp.
-
-Invoke with argument the starting timestamp and get the result of the
-perf measurement in human and machine readable format.
 
 -   `optSince` **{bigint=}** return value of hrtime.bigint().
 -   **Returns {bigint|Object}** If argument is defined Object, otherwise
@@ -517,35 +510,45 @@ perf measurement in human and machine readable format.
     -   `bigint` **{bigint}** The difference represented in nanoseconds.
     -   `hr` **{string}** The difference represented in human readable format.
 
+Helper for performance measuring of execution time.
+
+Invoke without argument to get the starting timestamp.
+
+Invoke with argument the starting timestamp and get the result of the
+perf measurement in human and machine readable format.
+
 ## Random
 
 ### getRandomIntMinMax(min, max)
-
-Returns a random number from "min" value up to "max" value.
 
 -   `min` **{number}** Minimum random number to return.
 -   `max` **{number}** Maximum random number to return.
 -   **Returns {number}** A random integer number.
 
-### getUniqueId(optPart)
+Returns a random number from "min" value up to "max" value.
 
-Produce a unique id on demand.
+### getUniqueId(optPart)
 
 -   `part` **{string=}** Any arbitrary string to prefix the id with.
 -   **Returns {string}**
+
+Produce a unique id on demand.
 
 ## String
 
 ### splitString(str, numChars = 1800)
 
-Will split a string based on its length using numChars or the default value
-of 1800 which is intented for spliting long discord messages (limit at 2000).
-
 -   `str` **{string}** The string to split.
 -   `numChars` **{number=}** Number of characters to split the string into.
 -   **Returns {Array\<string>}** An array of strings, split based on the numChars.
 
+Will split a string based on its length using numChars or the default value
+of 1800 which is intented for spliting long discord messages (limit at 2000).
+
 ### stdQuote(str)
+
+-   `str` **{string}** The string to normalize.
+-   **Returns {string}** Normalized string.
 
 Will normalize quotes in a given string.
 
@@ -553,16 +556,13 @@ There are many variations of quotes in the unicode character set, this
 function attempts to convert any variation of quote to the standard
 Quotation Mark - "U+0022 Standard Universal". [Read more about unicode quotes](https://unicode-table.com/en/sets/quotation-marks/)
 
--   `str` **{string}** The string to normalize.
--   **Returns {string}** Normalized string.
-
 ### humanCSVInputToArray(input)
-
-Will parse and normalize a human input of comma separated values
-each item will be trimmed for spaces.
 
 -   `input` **{string}** input The raw human input.
 -   **Returns {Array\<string>}** Space trimmed values.
+
+Will parse and normalize a human input of comma separated values
+each item will be trimmed for spaces.
 
 # Maintainance
 
