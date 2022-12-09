@@ -618,6 +618,8 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
+-   **v1.1.0**, _09 Dec 2022_
+    -   Added the `renderParts()` function.
 -   **v1.0.6**, _10 Oct 2022_
     -   Property exported `getRandomIntMinMax()`.
     -   Fixed `delayRandom()` using wrong randomizer function.
