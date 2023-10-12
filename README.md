@@ -675,6 +675,9 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
+-   **v1.2.0**, _12 Oct 2023_
+    -   Added error handling functions `catchErrorRetry()` and `parseRpcError()`.
+    -   Upgraded all dependencies to latest.
 -   **v1.1.0**, _09 Dec 2022_
     -   Added the `renderParts()` function.
 -   **v1.0.6**, _10 Oct 2022_
