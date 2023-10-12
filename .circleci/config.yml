@@ -4,18 +4,18 @@ workflows:
   version: 2
   node-multi-build:
     jobs:
-      - node-v14
       - node-v16
+      - node-v18
 
 jobs:
-  node-v14:
-    docker:
-      - image: node:14
-    steps:
-      - build
   node-v16:
     docker:
       - image: node:16
+    steps:
+      - build
+  node-v18:
+    docker:
+      - image: node:18
     steps:
       - build
 

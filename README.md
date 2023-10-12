@@ -598,6 +598,63 @@ const strCli = renderParts(parts, true);
 // Hear me out - these are the results - player 1: 120 - player 2: 420 - Winner: Player 2
 ```
 
+## Error Handling
+
+-   `log` **{Object}** Log instance to use for logging. `log.error()` will be
+    invoked to perform a log.
+-   `params` **{Object}** Parameters for handling the exception.
+-   `params.ex` **{Error}** The exception.
+-   `params.retries` **{number}** Retry count.
+-   `params.maxRetries` **{number=}** Maximum retry count, default is 5.
+-   `params.errorMessage` **{string=}** The error message to log on each handling.
+-   `params.logRetries` **{boolean=}** Set to true to log retries.
+-   `params.giveupCustom` **{Object=}** Any custom data to log on giveup.
+-   `params.retryFunction` **{function}** The function to invoke for retrying.
+-   `params.retryArguments` **{Object}** The arguments to call the function with.
+-   `params.doNotThrow` **{\*}** Set any value to this to have error handler not
+    throw an error after 5 retries and instead, return the value of this
+    parameter.
+-   `params.doNotLogError` **{boolean=}** Do not log the error on fail.
+-   **Return {Promise<\*>}** A Promise with any returning value the "retryFunction"
+    returns.
+
+### catchErrorRetry(log, params)
+
+Will catch an error and retry a function based on the given parameters.
+
+#### Example
+
+```js
+const { catchErrorRetry } = require('@thanpolas/sidekick');
+
+const log = require('./log');
+
+async function doSomethingDodgy(name, retries = 0) {
+    try {
+        throw new Error('I am dodgy');
+    } catch (ex) {
+        await catchErrorRetry(log, {
+            ex,
+            retries,
+            errorMessage: 'Gave up after 3 retries on dodgy function',
+            maxRetries: 3
+            retryFunction: doSomethingDodgy,
+            retryArguments: [name],
+        });
+    }
+}
+```
+
+### parseRpcError(exception)
+
+-   `exception` **{Error}** Exception from RPC ethers.js.
+-   **Returns {string|void}** The error message or void if not found.
+
+When a transaction fails, using the [ethers.js][ethers] library, the exception
+thrown is quite intimidating and hot helpful in having a clear error message.
+This function will attempt to safely explore and find the actual RPC error
+if it's there using heuristics.
+
 # Maintainance
 
 ## Update Node Version
@@ -618,6 +675,9 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
+-   **v1.2.0**, _12 Oct 2023_
+    -   Added error handling functions `catchErrorRetry()` and `parseRpcError()`.
+    -   Upgraded all dependencies to latest.
 -   **v1.1.0**, _09 Dec 2022_
     -   Added the `renderParts()` function.
 -   **v1.0.6**, _10 Oct 2022_
