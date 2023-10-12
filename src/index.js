@@ -25,6 +25,7 @@ const {
   unixToJsDate,
   dateDiff,
 } = require('./date');
+const { catchErrorRetry, parseRpcError } = require('./error-handler');
 const { getPercentHr, shortAddress, formatNumber } = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
@@ -104,3 +105,7 @@ exports.formatDate = formatDate;
 exports.formatDateShort = formatDateShort;
 exports.unixToJsDate = unixToJsDate;
 exports.dateDiff = dateDiff;
+
+// Error handling
+exports.catchErrorRetry = catchErrorRetry;
+exports.parseRpcError = parseRpcError;
