@@ -12,6 +12,17 @@
  */
 exports.getPercentHr = (a, b, decimals = 2) => {
   const percent = b / a;
+  return exports.formatPercentHr(percent, decimals);
+};
+
+/**
+ * Format a fraction into human readable percent format.
+ *
+ * @param {number} percent Percent float.
+ * @param {number=} decimals How many decimals to have.
+ * @return {string} Human readable percentage.
+ */
+exports.formatPercentHr = (percent, decimals = 2) => {
   return `${(percent * 100).toFixed(decimals)}%`;
 };
 

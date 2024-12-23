@@ -59,10 +59,13 @@ exports.flatCopyObj = (srcObj, trgObj, optPrefix = '') => {
  * Will safely JSON serialize any value to JSON, accounting for BigInt.
  *
  * @param {*} obj Any value to serialize.
+ * @param {string|number=} optSpace The space to use for formatting.
  * @return {string}
  */
-exports.safeStringify = (obj) => {
-  return JSON.stringify(obj, (key, value) =>
-    typeof value === 'bigint' ? value.toString() : value,
+exports.safeStringify = (obj, optSpace) => {
+  return JSON.stringify(
+    obj,
+    (key, value) => (typeof value === 'bigint' ? value.toString() : value),
+    optSpace,
   );
 };

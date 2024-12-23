@@ -32,6 +32,7 @@ const {
   formatNumber,
   getPercentDiffHr,
   formatCurrency,
+  formatPercentHr,
 } = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
@@ -77,6 +78,7 @@ exports.symmetricDecrypt = decrypt;
 // Formatting
 exports.getPercentHr = getPercentHr;
 exports.getPercentDiffHr = getPercentDiffHr;
+exports.formatPercentHr = formatPercentHr;
 exports.shortAddress = shortAddress;
 exports.formatNumber = formatNumber;
 exports.formatCurrency = formatCurrency;
