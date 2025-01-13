@@ -675,6 +675,8 @@ When a new node version is available you need to updated it in the following:
 
 ## Release History
 
+-   **v1.2.1**, _13 Jan 2025_
+    -   Added new helpers `getPercentDiffHr`, `formatCurrency`, `formatPercentHr`, `getTimestampAgo`.
 -   **v1.2.0**, _12 Oct 2023_
     -   Added error handling functions `catchErrorRetry()` and `parseRpcError()`.
     -   Upgraded all dependencies to latest.
