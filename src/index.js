@@ -26,7 +26,14 @@ const {
   dateDiff,
 } = require('./date');
 const { catchErrorRetry, parseRpcError } = require('./error-handler');
-const { getPercentHr, shortAddress, formatNumber } = require('./format');
+const {
+  getPercentHr,
+  shortAddress,
+  formatNumber,
+  getPercentDiffHr,
+  formatCurrency,
+  formatPercentHr,
+} = require('./format');
 const { iterObj, mapObj, flatCopyObj, safeStringify } = require('./object');
 const { perf, perfFormat, perfToSeconds } = require('./perf');
 const { getRandomIntMinMax, getUniqueId } = require('./random');
@@ -42,6 +49,7 @@ const {
   delayMs,
   delayRandom,
   secondsToDhms,
+  getTimestampAgo,
 } = require('./time');
 
 /**
@@ -69,8 +77,11 @@ exports.symmetricDecrypt = decrypt;
 
 // Formatting
 exports.getPercentHr = getPercentHr;
+exports.getPercentDiffHr = getPercentDiffHr;
+exports.formatPercentHr = formatPercentHr;
 exports.shortAddress = shortAddress;
 exports.formatNumber = formatNumber;
+exports.formatCurrency = formatCurrency;
 
 // Objects
 exports.iterObj = iterObj;
@@ -99,6 +110,7 @@ exports.errorDelay = errorDelay;
 exports.delayMs = delayMs;
 exports.delayRandom = delayRandom;
 exports.secondsToDhms = secondsToDhms;
+exports.getTimestampAgo = getTimestampAgo;
 
 // Date
 exports.formatDate = formatDate;

@@ -94,3 +94,15 @@ exports.secondsToDhms = (seconds, short = false) => {
 
   return dDisplay + hDisplay + mDisplay + sDisplay;
 };
+
+/**
+ * Will produce a Unix Timestamp number substracting the provided
+ * seconds from the current time.
+ *
+ * @param {number} seconds How many seconds ago.
+ * @return {number} Unix timestamp.
+ */
+exports.getTimestampAgo = (seconds) => {
+  const timestampAgo = Date.now() - seconds * 1000;
+  return Number((timestampAgo / 1000).toFixed(0));
+};
